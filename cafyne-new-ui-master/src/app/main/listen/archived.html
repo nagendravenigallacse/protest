@@ -1,0 +1,63 @@
+<div layout="row" layout-wrap>
+  <div class="timeline" layout="column" flex="100" flex-gt-sm="55" flex-gt-md="65" flex-order="2" flex-order-gt-sm="1">
+    <div class="timeline-item md-whiteframe-1dp" ng-repeat="post in vm.notInterestedPosts"
+         ng-if="vm.notInterestedPosts.length > 0">
+      <header layout="row" layout-align="space-between start">
+        <div class="user" layout="row" layout-align="start center">
+          <img class="avatar" ng-src="{{post.user.avatar}}">
+
+          <div layout="column">
+            <div class="title">
+              <span class="username md-accent-color">{{post.actorHandle}}</span>
+            </div>
+            <div class="time">{{post.postCreatedTime | date:'dd-MMM-yyyy, hh:mm a'}}</div>
+          </div>
+        </div>
+
+        <md-button class="md-icon-button" aria-label="more" translate translate-attr-aria-label="PROFILE.MORE">
+          <md-icon md-font-icon="icon-dots-vertical"></md-icon>
+        </md-button>
+      </header>
+
+      <div class="content">
+        <div ng-if="post.postContent" class="message">{{post.postContent}}</div>
+
+        <div ng-if="post.media" class="media">
+          <img ng-if="post.media.type === 'image'" ng-src="{{post.media.preview}}">
+
+          <div ng-if="post.media.type === 'video'" ng-bind-html="post.media.embed | toTrusted">
+          </div>
+        </div>
+
+        <div ng-if="post.article" layout="column" class="article">
+          <div class="media">
+            <img ng-src="{{post.article.media.preview}}">
+          </div>
+          <div class="title">{{post.article.title}}</div>
+          <div class="subtitle">{{post.article.subtitle}}</div>
+          <div class="excerpt">{{post.article.excerpt}}</div>
+        </div>
+
+        <!--<div layout="row" layout-align="start center">
+          <md-button class="like-button">
+            <div layout="row" layout-align="start center">
+              <md-icon md-font-icon="icon-heart-outline" class="s16"></md-icon>
+              <span translate="PROFILE.LIKE">Like</span>&nbsp;<span>({{post.like}})</span>
+            </div>
+          </md-button>
+          <md-button class="share-button">
+            <div layout="row" layout-align="start center">
+              <md-icon md-font-icon="icon-share" class="s16"></md-icon>
+              <span translate="PROFILE.SHARE">Share</span>&nbsp;<span>({{post.share}})</span>
+            </div>
+          </md-button>
+        </div>-->
+      </div>
+    </div>
+    <div class="timeline-item md-whiteframe-1dp" ng-if="vm.notInterestedPosts.length === 0">
+      <div class="p-10">No Posts available</div>
+    </div>
+  </div>
+</div>
+
+

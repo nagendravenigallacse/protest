@@ -1,0 +1,132 @@
+<md-card class="no-margin">
+  <md-card-content class="no-padding">
+    <div class="ph-16 pv-8 border-bottom" layout="row" layout-align="space-between center"
+         layout-wrap>
+      <div class="" layout="row" layout-align="start center" layout-align-sm="end" flex-sm="100">
+        <md-button class="ph-16 no-margin text_transform_none" ng-click="vm.optionSelected(1)"
+                   ng-class="{'md-accent':vm.selectedVal == 1}">
+          <i class="icon icon-account-plus s16"></i> Add Profile
+        </md-button>
+        <md-button class="ph-16 no-margin text_transform_none" ng-click="vm.optionSelected(2)"
+                   ng-class="{'md-accent':vm.selectedVal == 2}">
+          <i class="icon icon-account-search s16"></i> Profile Discovery
+        </md-button>
+      </div>
+
+      <div class="lock-size" layout="row" layout-align="center center" ng-if="vm.selectedVal == 1">
+        <md-fab-speed-dial ng-hide="vm.hidden" md-direction="left" md-open="vm.isOpen"
+                           class="md-scale" ng-class="{ 'md-hover-full': vm.hover }"
+                           ng-mouseenter="vm.isOpen = true" ng-mouseleave="vm.isOpen = false">
+          <md-fab-trigger>
+            <md-button aria-label="Add Profile" class="md-fab md-warn pt-5">
+              <md-tooltip md-direction="top" md-visible="true">Add Profile</md-tooltip>
+              <i class="icon icon-plus s42 color_light"></i>
+            </md-button>
+          </md-fab-trigger>
+
+          <md-fab-actions>
+            <md-button aria-label="Single" class="md-fab md-raised md-mini">
+              <md-tooltip md-direction="top" md-visible="true" md-autohide="false">Single</md-tooltip>
+              <i class="icon icon-account-plus s18 pt-5"></i>
+            </md-button>
+            <md-button aria-label="Multiple" class="md-fab md-raised md-mini">
+              <md-tooltip md-direction="top" md-visible="true" md-autohide="false">Multiple</md-tooltip>
+              <i class="icon icon-account-multiple-plus s18 pt-5"></i>
+            </md-button>
+          </md-fab-actions>
+        </md-fab-speed-dial>
+      </div>
+    </div>
+
+    <div class="content" ng-if="vm.selectedVal == 1">
+      <div class="white-bg md-whiteframe-4dp">
+        <table class="dataTable row-border hover" datatable="ng" dt-options="vm.dtOptions">
+          <thead>
+          <tr>
+            <th class="secondary-text">
+              <div class="table-header">
+                <span class="column-title">Name</span>
+              </div>
+            </th>
+            <th class="secondary-text">
+              <div class="table-header">
+                <span class="column-title">Channel</span>
+              </div>
+            </th>
+            <th class="secondary-text">
+              <div class="table-header">
+                <span class="column-title">Profile</span>
+              </div>
+            </th>
+            <th class="secondary-text">
+              <div class="table-header">
+                <span class="column-title">Listening</span>
+              </div>
+            </th>
+            <th class="secondary-text">
+              <div class="table-header">
+                <span class="column-title">Klout Score</span>
+              </div>
+            </th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr ng-repeat="profile in vm.allProfiles">
+            <td>{{ profile.name }}</td>
+            <td>
+              <span ng-show="profile.channel == 1"><i class="icon icon-twitter-box s24"></i></span>
+              <span ng-show="profile.channel == 2"><i class="icon icon-facebook-box s24"></i></span>
+            </td>
+            <td><a ng-href="{{profile.profileURL}}" target="_blank">{{ profile.screenName }}</a></td>
+            <td>{{ profile.listen === 1 ? 'Yes' : 'NO' }}</td>
+            <td>{{ profile.klout }}</td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="content" ng-if="vm.selectedVal == 2">
+      <div class="white-bg md-whiteframe-4dp">
+        <table class="dataTable row-border hover" datatable="ng" dt-options="vm.dtOptions">
+          <thead>
+          <tr>
+            <th class="secondary-text">
+              <div class="table-header">
+                <span class="column-title">Search Query</span>
+              </div>
+            </th>
+            <th class="secondary-text">
+              <div class="table-header">
+                <span class="column-title">Channel</span>
+              </div>
+            </th>
+            <th class="secondary-text">
+              <div class="table-header">
+                <span class="column-title">Start Time</span>
+              </div>
+            </th>
+            <th class="secondary-text">
+              <div class="table-header">
+                <span class="column-title">Status</span>
+              </div>
+            </th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr ng-repeat="profile in vm.searchedProfiles">
+            <td>{{ profile.searchQuery }}</td>
+            <td>
+              <span ng-show="profile.channelId == 1"><i class="icon icon-twitter-box s24"></i></span>
+              <span ng-show="profile.channelId == 2"><i class="icon icon-facebook-box s24"></i></span>
+            </td>
+            <td>{{ profile.startTime | date : 'dd-MMM-yyyy'}}</td>
+            <td>{{ profile.searchStatus }}</td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+  </md-card-content>
+</md-card>

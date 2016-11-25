@@ -1,0 +1,35 @@
+{
+  "REGISTER": {
+    "INTRO_TITLE": "Welcome to Cafyne",
+    "INTRO_DESCRIPTION": "Enterprise social media solution to Measure, Monitor and Control social media risk.",
+    "PAGE_TITLE": "Create an account",
+    "DESCRIPTION": "Sed mollis velit facilisis facilisis viverra",
+    "NAME": "Name",
+    "FIRSTNAME": "First Name",
+    "LASTNAME": "Last Name",
+    "COMPANY_NAME": "Company Name",
+    "INDUSTRY": "Industry",
+    "TITLE": "Title",
+    "EMAIL": "Email",
+    "PASSWORD": "Password",
+    "PASSWORD_CONFIRM": "Password (Confirm)",
+    "READ_ACCEPT": "I read and accept",
+    "TERMS_COND": "terms and conditions",
+    "CREATE_ACCOUNT": "CREATE MY ACCOUNT",
+    "ALREADY_HAVE": "Already have an account?",
+    "LOGIN": "Log in",
+    "ERRORS": {
+      "USERNAME_REQUIRED": "Username field is required",
+      "FIRSTNAME_REQUIRED": "First name field is required",
+      "LASTNAME_REQUIRED": "Last name field is required",
+      "COMPANY_NAME_REQUIRED": "Company name field is required",
+      "INDUSTRY_REQUIRED": "Industry field is required",
+      "TITLE_REQUIRED": "Title field is required",
+      "EMAIL_REQUIRED": "Email field is required",
+      "EMAIL_MUST_VALID": "Email must be a valid e-mail address",
+      "PASSWORD_REQUIRED": "Password field is required",
+      "PASSWORD_CONFIRM_REQUIRED": "Password confirm field is required",
+      "TERMS_REQUIRED": "You must accept terms and conditions before submitting the form"
+    }
+  }
+}

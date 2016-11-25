@@ -1,0 +1,26 @@
+<div id="listen" class="page-layout simple" layout="row">
+  <div class="center" flex ms-scroll>
+    <div class="content">
+      <md-tabs md-dynamic-height md-swipe-content md-stretch-tabs>
+        <md-tab label="Interested" md-on-select="vm.getAllInterestedPosts()">
+          <md-tab-label><i class="icon icon-heart s16"></i> Interested</md-tab-label>
+          <md-tab-body>
+            <div class="" ng-include="'app/main/listen/interested.html'"></div>
+          </md-tab-body>
+        </md-tab>
+        <md-tab label="Not Interested" md-on-select="vm.getAllNotInterestedPosts()">
+          <md-tab-label><i class="icon icon-heart-broken s16"></i> Not Interested</md-tab-label>
+          <md-tab-body>
+            <div class="" ng-include="'app/main/listen/archived.html'"></div>
+          </md-tab-body>
+        </md-tab>
+        <md-tab label="Profile Manager" md-on-select="vm.initiateProfileManagerTab()">
+          <md-tab-label><i class="icon icon-account-key s16"></i> Profile Manager</md-tab-label>
+          <md-tab-body>
+            <div class="" ng-include="'app/main/listen/profile-manager.html'"></div>
+          </md-tab-body>
+        </md-tab>
+      </md-tabs>
+    </div>
+  </div>
+</div>
